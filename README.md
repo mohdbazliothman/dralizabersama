@@ -157,3 +157,6 @@ Suite browser menjalankan Next dev di port 3101. Ia menyemak 390/768/1440px, ime
 - [Vercel request headers](https://vercel.com/docs/headers/request-headers)
 - [Resend idempotency](https://resend.com/docs/dashboard/emails/idempotency-keys)
 - [Clarity consent](https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-consent-api-v2)
+
+## Saluran borang semasa — WhatsApp
+Semua borang awam kini menyediakan mesej melalui WhatsApp ke 60106538685. Pengguna perlu menekan Send dalam WhatsApp. Borang tidak memanggil API submissions, Supabase, Resend atau Turnstile. Endpoint lama dikekalkan untuk rujukan tetapi tidak digunakan oleh UI. Nombor destinasi dan format mesej berada dalam lib/whatsapp.ts. Event form_whatsapp_open menandakan pembukaan sahaja, bukan penghantaran berjaya.

@@ -9,5 +9,5 @@ export const officialChannels = {
   facebook: 'https://www.facebook.com/BersamaDrAliza',
   tiktok: null,
   instagram: null,
-  whatsapp: null,
+  whatsapp: 'https://wa.me/60106538685',
 } satisfies Record<string, string | null>;
