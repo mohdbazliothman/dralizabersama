@@ -17,16 +17,16 @@ export const activities: Activity[] = [{
   "title": "Meninjau pembaikan paip di Jalan Bukit Piatu",
   "excerpt": "Lawatan ke lokasi pembaikan paip bocor serta maklum balas kepada SAMB tentang bekalan air alternatif untuk penduduk yang terjejas.",
   "publishedAt": "2026-10-01",
-  "image": "/images/activities/lawatan-paip-bukit-piatu.jpg",
-  "imageAlt": "Dr Aliza bersama seorang wanita di lokasi kerja pembaikan paip pada waktu malam.",
+  "image": "/images/activities/lawatan-paip-bukit-piatu-landscape.jpg",
+  "imageAlt": "Dr Aliza meninjau kerja pembaikan paip dengan jentera pengorek di Jalan Bukit Piatu pada waktu malam.",
   "facebookUrl": "https://www.facebook.com/BersamaDrAliza/posts/pfbid0hShPaHPkJbndZhTUHkBhDSikao49bEXZvypf9VueruvhpwZshyuHWLtJJuTHa5Eyl"
 }, {
   id: 'kunjungan-kg-tun-razak',
   title: 'Bertemu warga Kampung Tun Razak',
   excerpt: 'Dr Aliza berkongsi kunjungan bertemu warga Bukit Katil di Kampung Tun Razak dan mengucapkan terima kasih kepada mereka yang menjayakan program.',
   publishedAt: '2026-09-21',
-  image: '/images/activities/kunjungan-kg-tun-razak.jpg',
-  imageAlt: 'Dr Aliza berbual dengan warga di sebuah gerai berbumbung di Kampung Tun Razak.',
+  image: '/images/activities/kunjungan-kg-tun-razak-landscape.jpg',
+  imageAlt: 'Dr Aliza berbual dengan warga di gerai makanan berbumbung di Kampung Tun Razak.',
   facebookUrl: 'https://www.facebook.com/BersamaDrAliza/posts/pfbid0RhNbBNYYM9trALZVMY8MJyhy2nHh5byrXxijFnRkVNbZfsZWxeGC3S35Y7ATQtmvl'
 }, {
   "id": "sesi-pembelajaran",
@@ -41,8 +41,8 @@ export const activities: Activity[] = [{
   title: 'Ziarah sahabat di Hospital Melaka',
   excerpt: 'Dr Aliza berkongsi ziarah menemui sahabatnya, Haji Babji, di Hospital Melaka dan menitipkan doa agar beliau segera sembuh.',
   publishedAt: '2026-09-27',
-  image: '/images/activities/ziarah-hospital-melaka.jpg',
-  imageAlt: 'Dr Aliza bergambar bersama Haji Babji dan dua wanita di ruang hospital.',
+  image: '/images/activities/ziarah-hospital-melaka-landscape.jpg',
+  imageAlt: 'Dr Aliza bergambar bersama Haji Babji dan empat wanita lain di koridor Hospital Melaka.',
   facebookUrl: 'https://www.facebook.com/BersamaDrAliza/posts/pfbid0EB1NR3ZpjGagUrj2dYzieqvVABCBWXSXmrwM6Aq3jRq1YFDAruVFRc8f1jdhqdo2l'
 }];
 
