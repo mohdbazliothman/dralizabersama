@@ -5,7 +5,7 @@ export const teaEvent = {
   time: '3:00 PM – 5:00 PM',
   venue: 'Pohon Beringin Cafe, Bukit Katil, Melaka',
   admission: 50,
-  deadline: '25 October 2026',
+  deadline: '29 October 2026',
   highlights: [
     { title: 'Hi-tea', text: 'Enjoy a relaxed tea gathering.' },
     { title: 'Campaign update', text: 'Insights and reflections from Dr Aliza.' },

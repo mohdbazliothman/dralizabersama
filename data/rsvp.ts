@@ -5,7 +5,7 @@ export const teaEvent = {
   time: '3:00 – 5:00 petang',
   venue: 'Pohon Beringin Cafe, Bukit Katil, Melaka',
   admission: 50,
-  deadline: '25 Oktober 2026',
+  deadline: '29 Oktober 2026',
   highlights: [
     { title: 'Minum petang', text: 'Nikmati minum petang dalam suasana santai.' },
     { title: 'Perkembangan kempen', text: 'Perkongsian dan refleksi daripada Dr Aliza.' },
