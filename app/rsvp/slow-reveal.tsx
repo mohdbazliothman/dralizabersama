@@ -2,7 +2,7 @@
 import { useEffect, useRef, type ReactNode } from 'react';
 import styles from './rsvp.module.css';
 
-/** Progressive enhancement: server-rendered text stays readable without JavaScript. */
+/** Progressive enhancement: server-rendered content stays usable without JavaScript. */
 export default function SlowReveal({ children }: { children: ReactNode }) {
   const root = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -10,11 +10,11 @@ export default function SlowReveal({ children }: { children: ReactNode }) {
     if (!container || !('IntersectionObserver' in window)) return;
     const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
     const targets = Array.from(container.querySelectorAll<HTMLElement>([
-      `.${styles.hero} > p`, `.${styles.hero} h1`,
+      `.${styles.nav}`, `.${styles.languages}`, `.${styles.hero} > *`,
       `.${styles.letter} > p`, `.${styles.letter} > h2`,
       `.${styles.highlights} > p`, `.${styles.highlights} article`,
       `.${styles.details} > div`, `.${styles.reservation} > div > p`,
-      `.${styles.reservation} > div > h2`,
+      `.${styles.reservation} > div > h2`, `.${styles.poster}`, `.${styles.form}`, `.${styles.footer}`,
     ].join(',')));
     const animations = new Map<HTMLElement, Animation>();
     let observer: IntersectionObserver | undefined;
@@ -29,10 +29,16 @@ export default function SlowReveal({ children }: { children: ReactNode }) {
       if (preference.matches) return;
       targets.forEach(el => { el.style.opacity = '0'; });
       observer = new IntersectionObserver(entries => {
+        entries.filter(entry => !entry.isIntersecting).forEach(entry => {
+          const el = entry.target as HTMLElement;
+          animations.get(el)?.cancel(); animations.delete(el);
+          if (!el.contains(document.activeElement)) el.style.opacity = '0';
+        });
         const visible = entries.filter(entry => entry.isIntersecting);
         visible.forEach((entry, index) => {
           const el = entry.target as HTMLElement;
-          observer?.unobserve(el);
+          if (el.contains(document.activeElement)) { el.style.removeProperty('opacity'); return; }
+          animations.get(el)?.cancel();
           const heading = el.matches('h1,h2');
           const animation = el.animate([
             { opacity: 0, transform: `translateY(${heading ? 24 : 16}px)` },
@@ -41,13 +47,13 @@ export default function SlowReveal({ children }: { children: ReactNode }) {
           animations.set(el, animation);
           animation.onfinish = () => { el.style.removeProperty('opacity'); animation.cancel(); animations.delete(el); };
         });
-      }, { threshold: 0, rootMargin: '0px 0px -5% 0px' });
+      }, { threshold: 0, rootMargin: '0px' });
       targets.forEach(el => observer?.observe(el));
     }
     // Never make focused links or their surrounding text wait for an animation.
     function onFocus(event: FocusEvent) {
       targets.filter(el => el.contains(event.target as Node)).forEach(el => {
-        observer?.unobserve(el); animations.get(el)?.cancel(); animations.delete(el); el.style.removeProperty('opacity');
+        animations.get(el)?.cancel(); animations.delete(el); el.style.removeProperty('opacity');
       });
     }
     start();
