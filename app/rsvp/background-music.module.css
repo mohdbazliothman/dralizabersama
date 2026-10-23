@@ -1,0 +1,5 @@
+.player{position:fixed;right:16px;bottom:calc(110px + env(safe-area-inset-bottom));z-index:40;color:#122c50;max-width:220px}
+.player button{display:flex;align-items:center;gap:8px;min-height:44px;padding:10px 14px;border:1px solid #183b6233;border-radius:24px;background:#fffaf3;box-shadow:0 4px 18px #071a2e14;font-size:.75rem;cursor:pointer}
+.player button:hover{background:#eee7d9}
+.player button:focus-visible{outline:2px solid #123454;outline-offset:4px}
+.player p{background:#fffaf3;padding:8px;font-size:.75rem;border-radius:8px;margin-top:8px}

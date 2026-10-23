@@ -4,3 +4,5 @@
 .languages{max-width:1240px;margin:0 auto 20px;display:flex;justify-content:flex-end;gap:6px}.languages a{display:grid;place-items:center;min-width:48px;min-height:44px;border:1px solid #183b6244;font-size:.8rem}.languages a[aria-current=page]{background:#123454;color:#fffaf1}
 
 .page{padding-bottom:calc(120px + env(safe-area-inset-bottom))}
+
+.heroPortrait{width:min(100%,400px);margin:30px auto 24px}.heroPortrait img{display:block;width:100%;height:auto}.invitation{grid-template-columns:minmax(0,720px);justify-content:center}
