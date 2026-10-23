@@ -13,10 +13,9 @@ export default function BackgroundMusic({ english }: { english: boolean }) {
     const player = audio.current;
     if (!player) return;
     player.volume = 0.3;
-    void player.play().catch(() => {
-      // Browsers may require an explicit tap before allowing audible playback.
-    });
-    return () => player.pause();
+    const play = () => { void player.play().catch(() => setFailed(true)); };
+    window.addEventListener('rsvp-play-music', play);
+    return () => { window.removeEventListener('rsvp-play-music', play); player.pause(); };
   }, []);
 
   async function toggle() {
@@ -39,7 +38,7 @@ export default function BackgroundMusic({ english }: { english: boolean }) {
     : playing ? 'Jeda muzik' : 'Mainkan muzik';
 
   return <div className={styles.player}>
-    <audio ref={audio} src="/audio/lapres-midi-dartiste.mp3" autoPlay loop preload="metadata"
+    <audio ref={audio} src="/audio/lapres-midi-dartiste.mp3" loop preload="metadata"
       onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)}
       onError={() => { setPlaying(false); setFailed(true); }} />
     <button type="button" onClick={toggle} aria-label={label} title={label}>

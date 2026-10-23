@@ -57,9 +57,10 @@ export default function SlowReveal({ children }: { children: ReactNode }) {
       });
     }
     start();
+    window.addEventListener('rsvp-reveal', start);
     preference.addEventListener('change', start);
     container.addEventListener('focusin', onFocus);
-    return () => { showAll(); preference.removeEventListener('change', start); container.removeEventListener('focusin', onFocus); };
+    return () => { window.removeEventListener('rsvp-reveal', start); showAll(); preference.removeEventListener('change', start); container.removeEventListener('focusin', onFocus); };
   }, []);
   return <div ref={root}>{children}</div>;
 }
