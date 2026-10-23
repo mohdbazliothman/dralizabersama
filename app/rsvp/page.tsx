@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import FloatingMenu from './floating-menu';
+import SlowReveal from './slow-reveal';
 import MalayPage, { metadata as malayMetadata } from './content-ms';
 import EnglishPage, { metadata as englishMetadata } from './content-en';
 type Props = { searchParams: Promise<{ lang?: string | string[] }> };
@@ -12,5 +13,5 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
 }
 export default async function Page({ searchParams }: Props) {
   const english = (await searchParams).lang === 'en';
-  return <>{english ? <EnglishPage /> : <MalayPage />}<FloatingMenu english={english} /></>;
+  return <><SlowReveal key={english ? 'en' : 'ms'}>{english ? <EnglishPage /> : <MalayPage />}</SlowReveal><FloatingMenu english={english} /></>;
 }
